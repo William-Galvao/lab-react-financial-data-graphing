@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Graph from './Graph';
+import InputDate from './InputDate';
+import { useState } from 'react';
 
 function App() {
+  let [formData, setFormData] = useState({
+    initialDate: "",
+    finalDate: "",
+    currency: ""
+  })
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <InputDate setFormData={setFormData} formData={formData} />
+      <Graph formData={formData} setFormData={setFormData} />
     </div>
   );
 }
